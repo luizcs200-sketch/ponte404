@@ -18,6 +18,7 @@
     </a>
     <nav class="top-actions" aria-label="Ações rápidas">
       <button class="login-button" type="button" id="abrir-login">Entrar</button>
+      <button class="moderator-button" type="button" id="abrir-moderador" aria-label="Área do moderador" title="Área do moderador">🔒</button>
       <button class="icon-button theme-button" type="button" aria-label="Alternar tema">☼</button>
     </nav>
   </header>
@@ -76,11 +77,15 @@
         <div><strong id="nome-interno">Usuário</strong><small id="perfil-interno">Perfil</small></div>
       </div>
       <nav class="internal-nav" aria-label="Navegação interna">
+        <label class="internal-search"><span>⌕</span><input id="buscar-materia" type="search" placeholder="Pesquisar matéria"></label>
         <button class="active" type="button" data-panel="inicio">⌂ Início</button>
+        <button type="button" data-panel="materias">⌕ Materias e cursos</button>
         <button type="button" data-panel="agenda">▣ Minha agenda</button>
         <button type="button" data-panel="materiais">▤ Materiais</button>
         <button type="button" data-panel="mensagens">♡ Mensagens</button>
+        <button type="button" data-panel="ranking">★ Avaliações</button>
         <button type="button" data-panel="perfil">♙ Meu perfil</button>
+        <button type="button" data-panel="moderacao" id="menu-moderacao" hidden>◆ Moderação</button>
       </nav>
       <button class="logout-button" type="button" id="sair">Sair da conta</button>
     </aside>
@@ -103,9 +108,28 @@
         </div>
       </div>
 
+      <div class="panel" id="painel-materias">
+        <div class="panel-title"><div><small>EXPLORE A PLATAFORMA</small><h2>Matérias e cursos disponíveis</h2></div><span class="result-count" id="result-count">0 resultados</span></div>
+        <div class="course-grid" id="lista-cursos"></div>
+      </div>
+
       <div class="panel" id="painel-agenda"><h2>Minha agenda</h2><div class="empty-state">Sua agenda está vazia. Solicite uma aula para agendar um encontro.</div></div>
       <div class="panel" id="painel-materiais"><h2>Materiais educativos</h2><div class="empty-state">A biblioteca aparecerá aqui após a aprovação do seu perfil.</div></div>
       <div class="panel" id="painel-mensagens"><h2>Mensagens</h2><div class="empty-state">Você ainda não possui conversas.</div></div>
+
+      <div class="panel" id="painel-ranking">
+        <div class="panel-title"><div><small>AVALIAÇÕES DOS ALUNOS</small><h2>Ranking de professores</h2></div></div>
+        <div class="ranking-table" id="ranking-professores"></div>
+      </div>
+
+      <div class="panel" id="painel-moderacao">
+        <div class="panel-title"><div><small>PAINEL ADMINISTRATIVO</small><h2>Moderação e usuários</h2></div></div>
+        <div class="moderation-grid">
+          <section><h3>Certificados pendentes</h3><div id="certificados-pendentes"></div></section>
+          <section><h3>Professores e voluntários</h3><div id="lista-pessoas"></div></section>
+        </div>
+      </div>
+
       <div class="panel" id="painel-perfil"><h2>Meu perfil</h2><div class="profile-summary" id="resumo-perfil"></div></div>
     </div>
   </section>
@@ -144,6 +168,18 @@
       </div>
       <div id="campos-especificos"></div>
       <button class="button primary dialog-submit" type="submit">Criar conta</button>
+    </form>
+  </dialog>
+
+  <dialog id="moderador-dialog">
+    <form method="dialog" id="moderador-form">
+      <button class="dialog-close" value="cancel" type="button" data-close="moderador-dialog" aria-label="Fechar">×</button>
+      <span class="dialog-icon">🔒</span>
+      <h2>Área do moderador</h2>
+      <p>Acesso restrito à administração da plataforma.</p>
+      <label>E-mail<input name="email" type="email" required autocomplete="username" placeholder="zacachiro@gmail.com"></label>
+      <label>Senha<input name="senha" type="password" required autocomplete="current-password"></label>
+      <button class="button primary dialog-submit" type="submit">Acessar moderação</button>
     </form>
   </dialog>
 
