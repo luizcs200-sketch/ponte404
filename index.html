@@ -17,12 +17,12 @@
       <span><strong>Ponte 404</strong><small>EDUCAÇÃO SEM LIMITES</small></span>
     </a>
     <nav class="top-actions" aria-label="Ações rápidas">
+      <button class="login-button" type="button" id="abrir-login">Entrar</button>
       <button class="icon-button theme-button" type="button" aria-label="Alternar tema">☼</button>
-      <button class="icon-button" type="button" aria-label="Fechar apresentação">×</button>
     </nav>
   </header>
 
-  <main>
+  <main id="site-main">
     <section class="hero" aria-labelledby="titulo-principal">
       <div class="hero-inner">
         <div class="illustration-card">
@@ -39,7 +39,7 @@
           <h1 id="titulo-principal">Vamos aprender <span>juntos?</span></h1>
           <p>A Ponte 404 conecta alunos de escolas públicas a professores e voluntários para transformar dúvidas em caminhos e conhecimento em oportunidades.</p>
           <div class="hero-actions">
-            <button class="button primary" type="button" data-scroll="perfis">Entrar na plataforma <span>→</span></button>
+            <button class="button primary" type="button" id="abrir-login-principal">Entrar na plataforma <span>→</span></button>
             <button class="button secondary" type="button" id="abrir-cadastro">Criar conta</button>
           </div>
           <div class="reassurance">
@@ -69,22 +69,81 @@
     </section>
   </main>
 
+  <section class="internal-page" id="area-interna" hidden aria-label="Área interna">
+    <aside class="internal-sidebar">
+      <div class="internal-user">
+        <div class="avatar" id="avatar-interno">P</div>
+        <div><strong id="nome-interno">Usuário</strong><small id="perfil-interno">Perfil</small></div>
+      </div>
+      <nav class="internal-nav" aria-label="Navegação interna">
+        <button class="active" type="button" data-panel="inicio">⌂ Início</button>
+        <button type="button" data-panel="agenda">▣ Minha agenda</button>
+        <button type="button" data-panel="materiais">▤ Materiais</button>
+        <button type="button" data-panel="mensagens">♡ Mensagens</button>
+        <button type="button" data-panel="perfil">♙ Meu perfil</button>
+      </nav>
+      <button class="logout-button" type="button" id="sair">Sair da conta</button>
+    </aside>
+
+    <div class="internal-content">
+      <header class="internal-header">
+        <div><small>ÁREA INTERNA</small><h1 id="titulo-interno">Bem-vindo(a)!</h1></div>
+        <span class="status-pill">● Conta ativa</span>
+      </header>
+
+      <div class="panel active" id="painel-inicio">
+        <div class="quick-grid">
+          <article><span class="quick-icon blue">▣</span><strong>Próxima aula</strong><b>Sem aula agendada</b><small>Encontre um professor ou voluntário</small></article>
+          <article><span class="quick-icon coral">♡</span><strong>Mensagens</strong><b>0 novas</b><small>Seu chat ficará disponível aqui</small></article>
+          <article><span class="quick-icon green">✓</span><strong>Aulas concluídas</strong><b>0 aulas</b><small>Seu histórico começa agora</small></article>
+        </div>
+        <div class="internal-sections">
+          <section><div class="section-heading"><h2>Como posso ajudar?</h2><span>Recomendados</span></div><div class="empty-state">Complete seu perfil para receber recomendações de match por matéria e disponibilidade.</div></section>
+          <section><div class="section-heading"><h2>Agenda da semana</h2><span>Ver tudo</span></div><div class="empty-state">Não há encontros agendados esta semana.</div></section>
+        </div>
+      </div>
+
+      <div class="panel" id="painel-agenda"><h2>Minha agenda</h2><div class="empty-state">Sua agenda está vazia. Solicite uma aula para agendar um encontro.</div></div>
+      <div class="panel" id="painel-materiais"><h2>Materiais educativos</h2><div class="empty-state">A biblioteca aparecerá aqui após a aprovação do seu perfil.</div></div>
+      <div class="panel" id="painel-mensagens"><h2>Mensagens</h2><div class="empty-state">Você ainda não possui conversas.</div></div>
+      <div class="panel" id="painel-perfil"><h2>Meu perfil</h2><div class="profile-summary" id="resumo-perfil"></div></div>
+    </div>
+  </section>
+
+  <dialog id="login-dialog">
+    <form method="dialog" id="login-form">
+      <button class="dialog-close" value="cancel" type="button" data-close="login-dialog" aria-label="Fechar">×</button>
+      <span class="dialog-icon">P</span>
+      <h2>Acesse sua conta</h2>
+      <p>Informe seu e-mail e senha cadastrados.</p>
+      <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+      <label>Senha<input name="senha" type="password" required minlength="6" autocomplete="current-password"></label>
+      <button class="button primary dialog-submit" type="submit">Entrar</button>
+      <button class="text-button" id="ir-cadastro" type="button">Ainda não tem conta? Criar cadastro</button>
+    </form>
+  </dialog>
+
   <dialog id="cadastro-dialog">
     <form method="dialog" id="cadastro-form">
-      <button class="dialog-close" value="cancel" aria-label="Fechar">×</button>
+      <button class="dialog-close" value="cancel" type="button" data-close="cadastro-dialog" aria-label="Fechar">×</button>
       <span class="dialog-icon">P</span>
       <h2>Crie seu cadastro</h2>
-      <p id="dialog-description">Escolha seu perfil e comece a fazer parte da Ponte 404.</p>
-      <label>Nome completo<input name="nome" type="text" required autocomplete="name"></label>
-      <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
-      <label>Perfil
-        <select name="perfil" id="perfil-select">
-          <option value="aluno">Aluno</option>
-          <option value="professor">Professor</option>
-          <option value="voluntario">Voluntário</option>
-        </select>
-      </label>
-      <button class="button primary dialog-submit" value="default">Continuar</button>
+      <p>Preencha seus dados para criar sua conta com senha.</p>
+      <div class="form-grid">
+        <label>Nome completo<input name="nome" type="text" required autocomplete="name"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+        <label>Senha<input name="senha" type="password" required minlength="6" autocomplete="new-password"></label>
+        <label>Confirmar senha<input name="confirmarSenha" type="password" required minlength="6" autocomplete="new-password"></label>
+        <label>Perfil
+          <select name="perfil" id="perfil-select">
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="voluntario">Voluntário</option>
+          </select>
+        </label>
+      </div>
+      <div id="campos-especificos"></div>
+      <button class="button primary dialog-submit" type="submit">Criar conta</button>
     </form>
   </dialog>
 
