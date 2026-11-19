@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ponte 404 conecta alunos, professores e voluntários por meio do reforço escolar gratuito.">
+  <title>Ponte 404 — Educação sem limites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght+400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Ponte 404 — página inicial">
+      <span class="brand-mark" aria-hidden="true"><span>?</span></span>
+      <span><strong>Ponte 404</strong><small>EDUCAÇÃO SEM LIMITES</small></span>
+    </a>
+    <nav class="top-actions" aria-label="Ações rápidas">
+      <button class="icon-button theme-button" type="button" aria-label="Alternar tema">☼</button>
+      <button class="icon-button" type="button" aria-label="Fechar apresentação">×</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-inner">
+        <div class="illustration-card">
+          <img src="imagem do menu inicial.jpg" alt="Estudantes e uma voluntária aprendendo juntos em uma ponte de livros">
+          <div class="tags" aria-label="Palavras-chave">
+            <span class="tag green">Aprender</span>
+            <span class="tag orange">Ensinar</span>
+            <span class="tag yellow">Transformar</span>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <span class="eyebrow">✣ <b>Educação pública conectada</b></span>
+          <h1 id="titulo-principal">Vamos aprender <span>juntos?</span></h1>
+          <p>A Ponte 404 conecta alunos de escolas públicas a professores e voluntários para transformar dúvidas em caminhos e conhecimento em oportunidades.</p>
+          <div class="hero-actions">
+            <button class="button primary" type="button" data-scroll="perfis">Entrar na plataforma <span>→</span></button>
+            <button class="button secondary" type="button" id="abrir-cadastro">Criar conta</button>
+          </div>
+          <div class="reassurance">
+            <span class="shield" aria-hidden="true">✓</span>
+            <span><strong>Um espaço seguro e inclusivo</strong><small>Perfis validados e caminhos para todos.</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profiles" id="perfis" aria-label="Escolha seu perfil">
+      <button class="profile-card" type="button" data-profile="aluno">
+        <span class="profile-icon blue">♧</span>
+        <span><strong>Sou aluno</strong><small>Quero aprender e encontrar apoio</small></span>
+        <b aria-hidden="true">›</b>
+      </button>
+      <button class="profile-card" type="button" data-profile="professor">
+        <span class="profile-icon cyan">▣</span>
+        <span><strong>Sou professor</strong><small>Quero criar cursos e ensinar</small></span>
+        <b aria-hidden="true">›</b>
+      </button>
+      <button class="profile-card" type="button" data-profile="voluntario">
+        <span class="profile-icon coral">♡</span>
+        <span><strong>Sou voluntário</strong><small>Quero ensinar e também aprender</small></span>
+        <b aria-hidden="true">›</b>
+      </button>
+    </section>
+  </main>
+
+  <dialog id="cadastro-dialog">
+    <form method="dialog" id="cadastro-form">
+      <button class="dialog-close" value="cancel" aria-label="Fechar">×</button>
+      <span class="dialog-icon">P</span>
+      <h2>Crie seu cadastro</h2>
+      <p id="dialog-description">Escolha seu perfil e comece a fazer parte da Ponte 404.</p>
+      <label>Nome completo<input name="nome" type="text" required autocomplete="name"></label>
+      <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+      <label>Perfil
+        <select name="perfil" id="perfil-select">
+          <option value="aluno">Aluno</option>
+          <option value="professor">Professor</option>
+          <option value="voluntario">Voluntário</option>
+        </select>
+      </label>
+      <button class="button primary dialog-submit" value="default">Continuar</button>
+    </form>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
