@@ -36,15 +36,29 @@ function atualizarCamposPerfil(perfil) {
       <label>Responsável legal<input name="responsavel" type="text" placeholder="Se menor de idade"></label>`;
   } else if (perfil === 'professor') {
     camposEspecificos.innerHTML = `
-      <label>Formação acadêmica<input name="formacao" type="text" required placeholder="Ex.: Licenciatura em Matemática"></label>
+      <label>Tipo de formação
+        <select name="tipoFormacao" required>
+          <option value="">Selecione</option>
+          <option value="Ensino superior">Ensino superior</option>
+          <option value="Curso">Curso</option>
+        </select>
+      </label>
+      <label>Nome da formação ou curso<input name="formacao" type="text" required placeholder="Ex.: Licenciatura em Matemática ou Curso de Ciências"></label>
       <label>Área de atuação<input name="atuacao" type="text" required placeholder="Ex.: Matemática"></label>
       <label class="file-label">Certificado ou diploma<input name="certificado" type="file" accept=".pdf,.jpg,.jpeg,.png" required></label>
       <label>Disponibilidade<input name="disponibilidade" type="text" required placeholder="Ex.: Segundas e quartas à noite"></label>`;
   } else {
     camposEspecificos.innerHTML = `
-      <label>Escolaridade atual ou concluída<input name="escolaridade" type="text" required placeholder="Ex.: Ensino Médio completo"></label>
+      <label>Tipo de escolaridade
+        <select name="tipoFormacao" required>
+          <option value="">Selecione</option>
+          <option value="Ensino superior">Ensino superior</option>
+          <option value="Curso">Curso</option>
+        </select>
+      </label>
+      <label>Escolaridade atual ou concluída / curso<input name="escolaridade" type="text" required placeholder="Ex.: Graduação em ADS ou Curso de Informática"></label>
       <label>Área de conhecimento<input name="atuacao" type="text" required placeholder="Ex.: Português"></label>
-      <label>Comprovante de escolaridade<input name="comprovante" type="file" accept=".pdf,.jpg,.jpeg,.png" required></label>
+      <label>Comprovante de escolaridade ou certificado<input name="comprovante" type="file" accept=".pdf,.jpg,.jpeg,.png" required></label>
       <label>Disponibilidade<input name="disponibilidade" type="text" required placeholder="Ex.: Finais de semana"></label>`;
   }
 }
@@ -71,6 +85,7 @@ function entrarNaAreaInterna(usuario) {
     ${usuario.serie ? `<article><small>Série escolar</small><strong>${usuario.serie}</strong></article>` : ''}
     ${usuario.instituicao ? `<article><small>Instituição</small><strong>${usuario.instituicao}</strong></article>` : ''}
     ${usuario.atuacao ? `<article><small>Área de atuação</small><strong>${usuario.atuacao}</strong></article>` : ''}
+    ${usuario.tipoFormacao ? `<article><small>Tipo de formação</small><strong>${usuario.tipoFormacao}</strong></article>` : ''}
     ${usuario.formacao ? `<article><small>Formação</small><strong>${usuario.formacao}</strong></article>` : ''}
     ${usuario.disponibilidade ? `<article><small>Disponibilidade</small><strong>${usuario.disponibilidade}</strong></article>` : ''}`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
