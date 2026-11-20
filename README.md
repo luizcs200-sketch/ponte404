@@ -5,9 +5,9 @@ feito por alunos do senac -df do segundo semestre na materia laboratorio de inov
 com o intuito de facilitar a vida de quem precisa estudar
 
 
-colaboradores: 
-luizcs200-sketch
-josevictorsilva622
-ByteByBruna
-mefnbraz
-gersonjunior-AFK
+ # colaboradores: 
+- luizcs200-sketch,
+- josevictorsilva622,
+- ByteByBruna,
+- mefnbraz,
+- gersonjunior-AFK
