@@ -1,13 +1,6 @@
 # Ponte 404
 
 Plataforma educacional para conectar estudantes a professores e voluntários.
+feito por alunos do senac -df do segundo semestre na materia laboratorio de inovação
+com o intuito de facilitar a vida de quem precisa estudar
 
-## Publicar no GitHub Pages
-
-1. Crie um repositório no GitHub.
-2. Envie esta pasta para o repositório.
-3. Em **Settings > Pages**, escolha **Deploy from a branch**.
-4. Selecione a branch `main` e a pasta `/ (root)`.
-5. Salve. O GitHub fornecerá o endereço público do site.
-
-Para uma página com domínio personalizado, configure o DNS e o campo **Custom domain** nas opções do GitHub Pages.
